@@ -28,13 +28,15 @@ class CreateProductController {
     const product2: Product = this.createProductUseCase.execute(p2);
 
     // Adiciona e inicializa uma propriedade a um objeto
-    Object.assign(req, product1);
-    Object.assign(req, product2);
 
-    if (Product.calculate(p1, p2) === 1) {
-      return res.status(201).json({"message": "Types OK"}).send();
+
+    if (Product.calculate(product1, product2)) {
+      const r = {
+        result: product2.value,
+      };
+      return res.status(201).json(r).send();
     } else {
-      return res.status(500).json({"error": "Types are BAD"}).send();
+      return res.status(500).json({"error": "Types are bad or non valid values"}).send();
     }
   }
 }
