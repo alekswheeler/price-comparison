@@ -1,4 +1,4 @@
-import {CreateProductController} from "./createProductController";
+import {CreateProductController} from "./calculateController";
 import {CreateProductUseCase} from "./createProductUseCase";
 
 const createProductUseCase = new CreateProductUseCase();
