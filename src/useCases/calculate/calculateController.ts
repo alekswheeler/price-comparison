@@ -2,6 +2,12 @@ import {Request, Response} from "express";
 import {CreateProductUseCase} from "./createProductUseCase";
 import {Product} from "../../models/product";
 
+interface IDataRequest{
+  amount: Number;
+  value: Number;
+  type: string;
+};
+
 class CreateProductController {
   createProductUseCase: CreateProductUseCase;
 
@@ -10,18 +16,18 @@ class CreateProductController {
   }
 
   handle(req: Request, res: Response) {
-    const {type1, amount1, value1, type2, amount2} = req.body;
+    const {type1, type2, amount1, amount2, value1} = req.query;
 
-    const p1 = {
-      amount: amount1,
-      value: value1,
-      type: type1,
+    const p1: IDataRequest = {
+      amount: Number.parseFloat(amount1 as string),
+      value: Number.parseFloat(value1 as string),
+      type: type1 as string,
     };
 
-    const p2 = {
-      amount: amount2,
+    const p2: IDataRequest = {
+      amount: Number.parseFloat(amount2 as string),
       value: -1,
-      type: type2,
+      type: type2 as string,
     };
 
     const product1: Product = this.createProductUseCase.execute(p1);

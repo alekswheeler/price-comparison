@@ -7,43 +7,57 @@
     },
     "paths": {
         "/calculate": {
-            "post": {
+            "get": {
                 "tags": ["Calculate"],
                 "summary": "Get the price relational",
                 "description": "Recceives value, amount and type from product 1. The types are Kg,g,ml or L. Also, type and amount from product 2. The response is a JSON file with the value for product 2",
-                "requestBody": {
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "type": "object",
-                                "properties": {
-                                    "type1": {
-                                        "type": "string"
-                                    },
-                                    "type2": {
-                                        "type": "string"
-                                    },
-                                    "amount1": {
-                                        "type": "number"
-                                    },
-                                    "value1": {
-                                        "type": "number"
-                                    },
-                                    "amount2": {
-                                        "type": "number"
-                                    }
-                                },
-                                "example": {
-                                    "type1": "g",
-                                    "type2": "Kg",
-                                    "amount1": 500,
-                                    "value1": 10,
-                                    "amount2": 4
-                                }
-                            }
-                        }
-                    }
-                },
+                "parameters": [
+                    {
+                        "in": "query",
+                        "required": true,
+                        "name": "amount1",
+                        "schema": {
+                            "type":"number"
+                        },
+                        "description": "The product 1 quantity"
+                    },
+                    {  
+                        "in": "query",
+                        "required": true,
+                        "name": "amount2",
+                        "schema": {
+                            "type":"number"
+                        },
+                        "description": "The product 2 quantity"
+                    },
+                    {  
+                        "in": "query",
+                        "required": true,
+                        "name": "value1",
+                        "schema": {
+                            "type":"number"
+                        },
+                        "description": "The value of product 2"
+                    },
+                    {  
+                        "in": "query",
+                        "required": true,
+                        "name": "type1",
+                        "schema": {
+                            "type":"string"
+                        },
+                        "description": "The type of product 1 (Kg, g, L or ml)"
+                    },
+                    {  
+                        "in": "query",
+                        "required": true,
+                        "name": "type2",
+                        "schema": {
+                            "type":"string"
+                        },
+                        "description": "The type of product 2 (Kg, g, L or ml)"
+                    }        
+                ],
                 "responses": {
                     "200": {
                         "description": "Succes",
