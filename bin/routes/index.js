@@ -10,3 +10,6 @@ router.use("/calculate", calculate_routes_1.calculateRouter);
 router.get("/teste", (req, res) => {
     return res.status(200).json({ message: "Olá mundo!!" }).send();
 });
+router.get("/", (req, res) => {
+    return res.render("pages/index");
+});

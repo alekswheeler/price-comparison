@@ -1,13 +1,17 @@
 import express from "express";
 import {router} from "./routes";
 import swaggerUI from "swagger-ui-express";
-const app = express();
-
 import swaggerFile from "./swagger.json";
-app.use(express.json());
+import path from "path";
+import ejs from "ejs";
 
+const app = express();
+app.set("view engine", "ejs");
+
+app.use(express.json());
 app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(swaggerFile));
-app.use(express.static(__dirname + "/../public/"));
+
+app.set("views", path.join(__dirname, "/../public/views/"));
 
 app.use(router);
 

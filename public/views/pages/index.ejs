@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demonstração</title>
+</head>
+<body>
+    
+    <%- include('../partials/header') %>
+    <main>
+
+        <p>
+            Olá mundo com EJS!
+        </p>
+        <form action="/calculate" method="GET" name="myForm" id="myForm">
+            <p><label for="amount1">amount1:</label>
+              <input type="number" name="amount1" id="amount1">
+            </p>
+        
+            <p><label for="amount2">amount2:</label>
+              <input type="number" name="amount2" id="amount2">
+            </p>
+            
+            <p><label for="value1">value1:</label>
+              <input type="number" name="value1" id="value1">
+            </p>
+
+            <p><label for="type1">type1:</label>
+              <input type="text" name="type1" id="type1">
+            </p>
+
+            <p><label for="type2">type2:</label>
+              <input type="text" name="type2" id="type2">
+            </p>
+
+            <input value="Submit" type="submit">
+          </form>
+    </main>
+    <%- include('../partials/footer') %>
+</body>
+</html>
