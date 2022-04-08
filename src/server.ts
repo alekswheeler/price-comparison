@@ -3,7 +3,7 @@ import {router} from "./routes";
 import swaggerUI from "swagger-ui-express";
 import swaggerFile from "./swagger.json";
 import path from "path";
-import ejs from "ejs";
+const PORT = process.env.PORT || 5000;
 
 const app = express();
 app.set("view engine", "ejs");
@@ -15,6 +15,6 @@ app.set("views", path.join(__dirname, "/../public/views/"));
 
 app.use(router);
 
-app.listen(3000, ()=>{
+app.listen(PORT, ()=>{
   console.log("server is running!");
 });

@@ -8,12 +8,13 @@ const routes_1 = require("./routes");
 const swagger_ui_express_1 = __importDefault(require("swagger-ui-express"));
 const swagger_json_1 = __importDefault(require("./swagger.json"));
 const path_1 = __importDefault(require("path"));
+const PORT = process.env.PORT || 5000;
 const app = (0, express_1.default)();
 app.set("view engine", "ejs");
 app.use(express_1.default.json());
 app.use("/api-docs", swagger_ui_express_1.default.serve, swagger_ui_express_1.default.setup(swagger_json_1.default));
 app.set("views", path_1.default.join(__dirname, "/../public/views/"));
 app.use(routes_1.router);
-app.listen(3000, () => {
+app.listen(PORT, () => {
     console.log("server is running!");
 });

@@ -6,11 +6,11 @@ const router = Router();
 
 router.use("/calculate", calculateRouter);
 
-router.get("/teste", async (req, res)=>{
-  return res.json({message: "Olá mundo!!"}).send();
+router.get("/teste", (req, res)=>{
+  return res.status(200).json({message: "OLA"});
 });
 
-router.get("/", async (req, res)=>{
+router.get("/", (req, res)=>{
   return res.render("pages/index");
 });
 

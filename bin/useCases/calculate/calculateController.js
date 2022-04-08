@@ -29,7 +29,7 @@ class CreateProductController {
             return res.status(201).json(r).send();
         }
         else {
-            return res.status(500).json({ "error": "Types are bad or non valid values" }).send();
+            return res.status(500).json({ "error": "Types are bad or non valid values" });
         }
     }
 }
